@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="static/ico/favicon.ico" rel="icon" type="image/x-ico" />
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://fastly.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <script src="https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://fastly.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script>
+    function toggleVisibility(id) {
+        var element = document.getElementById(id);
+        if (element.style.display === 'none') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+    </script>
+<style>
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 100%; /* Adjust based on your layout needs */
+    margin-bottom: 20px; /* Space between cards */
+}
+
+
+.arrow {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px; /* Control the space between the cards */
+    font-size: 24px; /* Size of the arrow */
+    font-weight: bold; /* Make the arrow bold */
+    color: #007BFF; /* Arrow color */
+  }
+
+.card-body, .list-group-item {
+    text-align: left;
+}
+
+</style>
+<style>
+  .image-container {
+      display: flex;        
+      justify-content: center; 
+      align-items: center; 
+  }
+  
+  .responsive-image {
+      max-width: 50%;     
+      height: auto;        
+      margin: 5px;         
+  }
+  </style>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L6CDBYGT20"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L6CDBYGT20');
+  </script>
+  <style>
+    .navbar {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+    }
+
+    .navbar-expand-md .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+
+    .navbar {
+      align-items: stretch;
+      min-height: 3.5rem;
+      background: 0 0;
+      color: rgba(35, 46, 60, .7);
+    }
+
+    .navbar-light {
+      box-shadow: inset 0 -1px 0 0 rgba(101, 109, 119, .16);
+      background-color: #fff;
+    }
+
+    .navbar-collapse .navbar {
+      flex-grow: 1;
+    }
+    .page-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component-fade-enter-active,
+    .component-fade-leave-active {
+      transition: opacity .3s ease;
+    }
+
+    .component-fade-enter,
+    .component-fade-leave-to
+
+    /* .component-fade-leave-active for below version 2.1.8 */
+      {
+      opacity: 0;
+    }
+
+    .slide-fade-enter-active {
+      transition: all .5s ease;
+    }
+
+    .slide-fade-leave-active {
+      transition: all .5s ease;
+    }
+
+    .slide-fade-enter,
+    .slide-fade-leave-to
+
+    /* .slide-fade-leave-active for below version 2.1.8 */
+      {
+      transform: translateX(10px);
+      opacity: 0;
+    }
+    /* Class for tight group */
+    .group-item {
+      margin-bottom: 0;
+    }
+    .link-like {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    /* Additional spacing after every second item */
+    .group-item:nth-child(2n) {
+      margin-bottom: 3px; /* Adjust this value as needed for more spacing between groups */
+    }
+  </style>
+<style>
+  .btn {
+      border: none;
+      padding: 8px 16px; /* Smaller padding */
+      font-size: 14px; /* Smaller font size */
+      transition: all 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      border-radius: 5px; /* Rounded corners */
+      margin: 0 auto; /* Center the button */
+      display: block; /* Block-level for margin auto to work */
+  }
+  
+  .btn-light {
+      background-color: #e7e7e7; /* Light grey */
+      color: #555; /* Dark grey text */
+  }
+  
+  .btn-secondary {
+      background-color: #50596b; /* Dark grey */
+      color: white;
+  }
+  
+  .btn:hover, .btn:focus {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transform: translateY(-2px); /* Slight move up */
+  }
+  
+  .btn:active {
+      box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      transform: translateY(1px); /* Slight move down when active */
+  }
+  </style>
+  
+  
+  
+  <title>Jiahao</title>
+</head>
+
+
+
+<body>
+  <script src="https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://fastly.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <div id="app">
+    <div class="wrapper">
+      <!-- <header class="navbar navbar-expand-md navbar-light d-print-none">
+        <div class="container-xl">
+          <a href="index.html">
+            ReLoad
+          </a>
+        </div>
+
+      </header> -->
+
+      <div class="navbar-expand-md">
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <div class="navbar">
+            <div class="container-xl">
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                
+               
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="page-wrapper">
+        <div class="container-xl">
+          <transition name="component-fade" mode="out-in">
+            <component :is="nowname" :switchpartson="switchpart"></component>
+          </transition>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <template id="Overview">
+    <div>
+
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title">Disentangling Language Medium and Culture Context for Evaluating Multilingual Large Language Models</h1>
+                <div class="is-size-5 publication-authors">
+                  <!-- Paper authors -->
+                  <a href="mailto:jhying.2022@phdcs.smu.edu.sg">
+                    <span class="author-block">Jiahao Ying</a><sup>1, 5</sup>,</span>
+                    <span class="author-block">Wei Tang</a><sup>2, 5</sup>,</span>
+                  <span class="author-block">Yiran Zhao<sup>3, 5</sup>,</span>
+                  <span class="author-block">Yixin Cao<sup>4</sup>,</span>
+                  <span class="author-block">Yu Rong<sup>5</sup>,</span>
+                  <span class="author-block">Wenxuan Zhang<sup>6&#8224</sup>,</span>
+
+            
+                </div>
+                <div class="is-size-5 publication-authors" style="margin-top: 5px;">
+                  <span class="author-block">
+                    <sup>1</sup>Singapore Management University &nbsp  <br>
+ 
+                    <sup>2</sup>University of Science and Technology of China <br>
+
+                    <sup>3</sup>National University of Singapore    <br>
+    
+                    <sup>4</sup>Fudan University   <br>
+
+                    <sup>5</sup>DAMO Academy, Alibaba Group, <br>
+                   
+                    <sup>6</sup>Singapore University of Technology and Design
+    
+                    <br>
+                    <br>
+                    <span class="link-block">
+                      <a href="https://arxiv.org/abs/" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+                    <span class="link-block">
+                      <a href="https://github.com/yingjiahao14/Dual-Eval" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                      <a href="" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-globe"></i>
+                        </span>
+                        <span>Pages</span>
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Abstract</h2>
+              <div class="content has-text-justified">
+                <p>
+                  We introduce a <b>Dual Evaluation Framework</b> for assessing the multilingual capabilities of large language models (LLMs). Our framework separately examines two key aspects: the language used for the question (<b>linguistic medium</b>) and the <b>cultural context</b> being tested. Using an extended BLEnD dataset, we evaluate various models and find two main results: (1) LLMs perform best in English-speaking cultural scenarios, regardless of question language, and (2) models achieve higher accuracy when questions are asked in the language that matches the cultural context. We call this effect <b>"Cultural-Linguistic Synergy"</b>. Further analysis shows that the proportion of language- and culture-specific neurons activated in the model correlates with this synergy, offering a new lens for understanding and improving multilingual AI.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+
+              <h2 class="title is-3">Dual Evaluation Framework</h2>
+              <div class="content has-text-justified">
+                <img src="static/images/main.png" 
+                alt="..." 
+                style="margin-top: 20px; margin-bottom: 20px; max-width: 600px; width: 100%; display: block; margin-left: auto; margin-right: auto;">
+                <p>
+                  Our Dual Evaluation Framework assesses multilingual capabilities of LLMs across two key axes: <b>language</b> and <b>cultural context</b>. As shown in the figure, each question is evaluated in four scenarios—covering both American and Chinese cultural knowledge, asked in both English and Chinese. This reveals not just how well models handle native-language, native-culture tasks, but also ability to answer cross-cultural questions in single language. 
+                </p>
+
+              </div> 
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+      
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-4">Finding 1: LLMs’ Performance Declines as the Cultural Context Shifts from English to Cross-Cultural Scenarios.</h2>
+              <div class="content has-text-justified">
+                <p>
+                  Using our Dual Evaluation Framework, we compare models’ adaptability in cross-cultural contexts. The results indicate that, in general, the selected models perform better on English-speaking culture questions compared to other languages when asked in the respective language.
+                 </p>    
+                <p>
+                    
+        
+                  <img src="static/images/finding1.png" 
+                alt="..." 
+                style="margin-top: 20px; margin-bottom: 20px; max-width: 600px; width: 50%; display: block; margin-left: auto; margin-right: auto;">
+                <p>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-4">Finding 2: LLMs perform better when asked in the corresponding language.</h2>
+              <div class="content has-text-justified">
+               
+                <p>
+                  Beyond comparing model behavior across different cultural contexts within the same language, our Dual Evaluation Framework also reveals how models perform when answering culture-specific questions in different languages. Strikingly, as shown in the examples above, models consistently achieve higher scores when culture-specific questions are posed in their corresponding native language, compared to English. For instance, questions about Chinese culture yield better results when asked in Chinese rather than English; the same pattern holds for Indonesian and Iranian culture questions. We refer to this counterintuitive phenomenon as ''Cultural-Linguistic Synergy''. That is, aligning the cultural context with the appropriate linguistic medium, we can achieve superior performance — even for models primarily trained on English data, which perform better on English-specific tasks than on other language benchmarks.
+                </p>
+                 <img src="static/images/finding2.png" 
+                 alt="..." 
+                 style="margin-top: 20px; margin-bottom: 20px; max-width: 900px; width: 100%; display: block; margin-left: auto; margin-right: auto;">
+                 <p>
+
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Interpretability Analysis of Model Behavior</h2>
+              <div class="content has-text-justified">
+                <br>
+                 <img src="static/images/interpretation.png" 
+                 alt="..." 
+                 style="margin-top: 20px; margin-bottom: 20px; max-width: 1000px; width: 100%; display: block; margin-left: auto; margin-right: auto;">
+                <p>
+                  When comparing the proportions of specialized neurons activated under American cultural contexts and those of other cultures, we observe that models tend to activate a higher proportion of neurons specialized for the target language when the cultural context matches the linguistic medium used for questioning. In contrast, this alignment is less pronounced when such a match is absent. The activation of these specialized neurons enables the model to more effectively access culture- and language-specific knowledge. Notably, this knowledge may remain underutilized if the question is posed in English rather than the target language, which in turn explains why models achieve better performance when the language of the question is aligned with its cultural context.
+                </p>
+                <img src="static/images/result1.png" 
+                alt="..." 
+                style="margin-top: 20px; margin-bottom: 20px; max-width: 500px; width: 100%; display: block; margin-left: auto; margin-right: auto;">
+              </div>
+              <p style="text-align: left;">
+                Building on these observations, we propose and empirically validate the following hypotheses:
+                <br>
+                <div style="background: #f7f7fb; border-left: 4px solid #f7f7fb; padding: 18px 24px; margin: 24px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(93,109,255,0.06); text-align: left;">
+                  <div style="margin-bottom: 12px;">
+                    <span style="font-weight: bold; color: #000000;">&#9889; Hypothesis 1:</span>
+                    <span style="margin-left: 8px;">Models with a stronger ability to leverage cultural knowledge will activate a higher proportion of specialized neurons when the cultural context is aligned with the linguistic medium of the question.</span>
+                  </div>
+                  <div>
+                    <span style="font-weight: bold; color: #000000;">&#9889; Hypothesis 2:</span>
+                    <span style="margin-left: 8px;">The greater the number of neurons activated in response to questions in a given language, the better the model’s performance in that language.</span>
+                  </div>
+                </div>
+              
+              </p>
+
+              <div style="display: flex; justify-content: center; gap: 24px; margin: 25px 0;">
+                <img src="static/images/result2.png" alt="Result 2" style="max-height: 320px; max-width: 400px; width: auto; border-radius: 6px;">
+                <img src="static/images/result3.png" alt="Result 3" style="max-height: 320px; max-width: 400px; width: auto; border-radius: 6px;">
+              </div>
+              
+            
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <!--BibTex citation -->
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content" style="width: 80%; margin: auto;">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>
+          
+          </code></pre>
+          <a href="https://www.flagcounter.me/details/fT7"><img src="https://www.flagcounter.me/fT7/" alt="Flag Counter" hidden></a>
+        </div>
+      </section>
+
+    </div>
+  </template>
+
+</body>
+<script>
+  var overview = {
+    template: '#Overview'
+  };
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      nowname: 'overview'
+    },
+    components: {
+      overview
+    }
+  });
+</script>
+</html>
